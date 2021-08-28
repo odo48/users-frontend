@@ -1,0 +1,21 @@
+.container {
+  flex-direction: row;
+  display: flex;
+  padding: 0 0 16px 16px;
+  border-bottom: 1px solid var(--darkBlue);
+  margin-bottom: 16px;
+}
+
+.icon {
+  margin-right: 8px;
+  color: var(--darkGrey);
+}
+
+.subtitle {
+  color: var(--darkBlue);
+  font-weight: bold;
+}
+
+.info {
+  margin-bottom: 8px;
+}

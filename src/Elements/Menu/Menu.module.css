@@ -1,0 +1,12 @@
+ul .active {
+  background: var(--darkGrey);
+  color: white;
+}
+
+.active svg {
+  color: white;
+}
+
+ul > .item:hover {
+  background-color: var(--darkGrey);
+}

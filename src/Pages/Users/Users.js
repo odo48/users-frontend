@@ -1,43 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import User from "Components/User/User";
-import { users, comments } from "helpers.js";
-import {
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-} from "@material-ui/core";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import Comment from "Components/Comment/Comment";
 import style from "./Users.module.css";
+import Loading from "Elements/Loading/Loading";
+import api from "api";
 
 const Users = () => {
-  const [expanded, setExpanded] = useState(null);
+  const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(null);
 
-  const handleChange = (panel) => (event, newExpanded) => {
-    setExpanded(newExpanded ? panel : false);
-  };
+  const {
+    users: { getUsers },
+  } = api;
 
-  return users.map((user) => {
-    return (
-      <Accordion
-        square
-        expanded={expanded === user.id}
-        onChange={handleChange(user.id)}
-        key={user.id}
-      >
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <User user={user} />
-        </AccordionSummary>
-        <AccordionDetails>
-          <div className={style.details}>
-            {comments.map((comment) => {
-              return <Comment key={comment.id} comment={comment} />;
-            })}
-          </div>
-        </AccordionDetails>
-      </Accordion>
-    );
-  });
+  useEffect(() => {
+    const getAllUsers = async () => {
+      const response = await getUsers();
+      if (response) {
+        setErrorMessage(null);
+
+        setIsLoading(false);
+        setUsers(response);
+      } else {
+        setErrorMessage("Error");
+        setIsLoading(false);
+      }
+    };
+
+    getAllUsers();
+  }, [getUsers]);
+
+  return (
+    <div className={style.container}>
+      <div className={style.title}>Users page</div>
+      {isLoading ? (
+        <div className={style.loadingContainer}>
+          <Loading />
+        </div>
+      ) : (
+        users.map((user) => {
+          return <User key={user.id} user={user} />;
+        })
+      )}
+      <div className={style.error}>{errorMessage}</div>
+    </div>
+  );
 };
 
 export default Users;

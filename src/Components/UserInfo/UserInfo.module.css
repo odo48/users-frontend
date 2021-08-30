@@ -1,0 +1,30 @@
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  color: var(--darkBlue);
+}
+
+.subtitle {
+  font-size: 20px;
+  color: var(--darkBlue);
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+.subcontainer {
+  margin-bottom: 24px;
+}
+
+.subcontainer span {
+  width: 120px;
+  color: var(--darkBlue);
+  font-weight: bold;
+}
+
+.loadingContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

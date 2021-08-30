@@ -2,3 +2,25 @@
   display: flex;
   flex-direction: column;
 }
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  color: var(--darkBlue);
+}
+
+.container {
+  padding: 0 32px;
+}
+
+.loadingContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.error {
+  color: var(--red)
+}

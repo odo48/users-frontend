@@ -1,9 +1,9 @@
 import React from "react";
-import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import routes from "helpers/routes";
 import Menu from "Elements/Menu/Menu";
 import { makeStyles } from "@material-ui/core/styles";
+import "./App.css";
 
 const drawerWidth = 240;
 
@@ -26,6 +26,8 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
+    position: "relative",
+    height: "100vh"
   },
 }));
 const App = () => {

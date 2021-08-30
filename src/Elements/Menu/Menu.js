@@ -10,6 +10,8 @@ import routes from "helpers/routes";
 import { useHistory, useLocation } from "react-router-dom";
 import style from "./Menu.module.css";
 
+const shownPages = routes.filter((route) => route.show === true);
+
 const Menu = (props) => {
   const { classes } = props;
   let history = useHistory();
@@ -29,7 +31,7 @@ const Menu = (props) => {
     >
       <div className={classes.drawerContainer}>
         <List>
-          {routes.map((info) => {
+          {shownPages.map((info) => {
             const Icon = info.icon;
             return (
               <ListItem

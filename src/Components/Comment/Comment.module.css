@@ -1,9 +1,6 @@
 .container {
   flex-direction: row;
   display: flex;
-  padding: 0 0 16px 16px;
-  border-bottom: 1px solid var(--darkBlue);
-  margin-bottom: 16px;
 }
 
 .icon {

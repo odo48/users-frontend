@@ -1,6 +1,16 @@
 .container {
   display: flex;
   align-items: center;
+  color: var(--darkBlue);
+  margin-bottom: 8px;
+  cursor: pointer;
+  width: max-content;
+  transition: 0.2s;
+}
+
+.container:hover {
+  text-decoration: underline;
+  color: var(--lightBlue);
 }
 
 .icon {

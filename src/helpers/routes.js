@@ -1,6 +1,7 @@
 import Users from "Pages/Users/Users";
+import UserInfo from "Pages/UserInfo/UserInfo";
+
 import { PeopleAlt } from "@material-ui/icons";
-import UserInfo from "Components/UserInfo/UserInfo";
 
 const users = {
   path: "/users",

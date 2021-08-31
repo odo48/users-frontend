@@ -20,10 +20,22 @@ const getUserData = async (id) => {
     .catch(() => false);
 };
 
+const getCommentsByPost = async (id) => {
+  return axios
+    .get(`${API_BASE}/comments/post/${id}`)
+    .then((response) => {
+      return response.data;
+    })
+    .catch(() => false);
+};
+
 const api = {
   users: {
     getUsers,
     getUserData,
+  },
+  comments: {
+    getCommentsByPost,
   },
 };
 

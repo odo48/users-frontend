@@ -3,9 +3,21 @@ import style from "./UserInfo.module.css";
 
 const GeneralInfo = (props) => {
   const { data } = props;
-  const { address, company, email, name, phone, username, website } = data;
-  const { city, geo, street, suite, zipcode } = address;
-  const { bs, catchPhrase } = company;
+  const {
+    address: {
+      city,
+      geo: { lat, lng },
+      street,
+      suite,
+      zipcode,
+    },
+    company: { bs, catchPhrase, name: companyName },
+    email,
+    name,
+    phone,
+    username,
+    website,
+  } = data;
 
   return (
     <div className={style.container}>
@@ -41,7 +53,7 @@ const GeneralInfo = (props) => {
         </div>
         <div>
           <span>Geolocation:</span>
-          {geo.lat} | {geo.lng}
+          {lat} | {lng}
         </div>
         <div>
           <span>Street:</span>
@@ -56,7 +68,7 @@ const GeneralInfo = (props) => {
       <div className={style.subtitle}>Professional Information</div>
       <div className={style.subcontainer}>
         <div>
-          <span>Company Name:</span> {company.name}
+          <span>Company Name:</span> {companyName}
         </div>
         <div>
           <span>Catch Phrase:</span> {catchPhrase}

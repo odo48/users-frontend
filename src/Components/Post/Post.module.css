@@ -1,11 +1,6 @@
 .container {
+  flex-direction: row;
   display: flex;
-  padding: 32px;
-  border-top: 1px solid var(--darkBlue);
-}
-
-.container div {
-  margin-bottom: 8px;
 }
 
 .icon {
@@ -16,4 +11,8 @@
 .subtitle {
   color: var(--darkBlue);
   font-weight: bold;
+}
+
+.info {
+  margin-bottom: 8px;
 }
